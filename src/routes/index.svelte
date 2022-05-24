@@ -3,58 +3,61 @@
 </script>
 
 <script>
-	import Counter from '$lib/Counter.svelte';
+	 import Item from '$lib/Item.svelte';
+	 import Item2 from '$lib/Item2.svelte';
+	 import Header from '$lib/header/Header.svelte';
+	 const  initialHeaderParams = {
+		analytics: 1, 
+	  	infoViz: 2,
+		mapping: 1
+	 }
+	 let headerParams = initialHeaderParams;
+	//import Projects from '../lib/Projects.svelte';
+	function doSomething(event){
+		console.log(event.detail)
+		if(event.detail != null){
+			headerParams = {
+			analytics: event.detail.analytics, 
+	  		infoViz: event.detail.infoViz,
+			mapping: event.detail.mapping
+			}
+		} else {
+			headerParams = initialHeaderParams
+		}
+		
+	}
 </script>
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Stephen Osserman Portfolio" />
 </svelte:head>
 
+<!-- this was in layout, but am going to simplify this whole app -->
+<Header {...headerParams} />
+
+<main>
 <section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+	<Item2 on:update-header={doSomething} />
+ <!--<Projects />-->
 </section>
+</main>
 
 <style>
-	section {
+	main {
+		flex: 1;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
+		padding: 1rem;
 		width: 100%;
+		max-width: 1024px;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 
-	.welcome {
+	section { 
 		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+		padding: 0 10%;
 	}
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
 </style>
