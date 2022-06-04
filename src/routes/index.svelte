@@ -3,18 +3,19 @@
 </script>
 
 <script>
-	 import Item from '$lib/Item.svelte';
+	 //import Item from '$lib/Item.svelte';
+	 //import ItemDetail from '../lib/ItemDetail.svelte';
 	 import Item2 from '$lib/Item2.svelte';
-	//import Projects from '../lib/Projects.svelte';
+	
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Stephen's Portfolio</title>
 	<meta name="description" content="Stephen Osserman Portfolio" />
 </svelte:head>
 
 <section>
-	<Item2 />
+	<Item2 on:featureproject = {(event) => {console.log(event.Detail, ); showDetail = event.detail}}/>
  <!--<Projects />-->
 </section>
 

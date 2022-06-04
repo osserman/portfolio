@@ -1,6 +1,8 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
+	import Footer from '../lib/Footer.svelte';
+	let showFooter = false; 
 </script>
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,11 +14,10 @@
 <main>
 	<slot />
 </main>
-
-<footer>
-	<p>Hi, I'm Stephen. I'm a Visualization Developer and Data Scientist with over a decade of experience working with political and civic data. My academic background includes degrees in <em>Ethnicity, Race, and Migration</em>; in <em>Music</em>; and in <em>Spatial Analysis for Public Health</em>. This past few years I've been doing more Data Storytelling work and this page contains a sample of projects I've worked on along this journey.</p>
-</footer>
-
+<div class='footer-toggle'><button on:click={() => {showFooter = !showFooter}}>About Stephen</button> </div>
+{#if showFooter}
+<Footer on:togglefooter={() => {showFooter=!showFooter}}/>
+{/if}
 <style>
 
 	main {
@@ -25,28 +26,34 @@
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
-		max-width: 1024px;
+		max-width: 1258px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
-
-	footer {
-		position: fixed;
-		bottom: 0;
+	
+	.footer-toggle{
+        position: fixed;
+		bottom: 0px;
 		width: 100%;
-		/*min-height: 30%;*/
-		margin: 0;
-		display: flex; 
-		align-items: end;
+		border:none;
+        background-color: transparent;
+		padding: 25px 20px 20px 0px;
+	}
+
+	.footer-toggle button{
+		color:  var(--text-color);
+        border: none;
+		padding: 16px 16px 4px;
+    	font-size: 1.3rem;
+    	right: 20px;
+    	bottom: 16px;
+    	position: fixed;       
+		font-size: 1.1rem;
+        text-transform: uppercase;
 		background: linear-gradient(
-			var(--bg-blend-transparent) 0%,
-			var(--primary-color) 20%,
-			var(--primary-color) 100%
+			#00000000 0%,
+			var(--accent-color) 50%,
+			var(--accent-color) 100%
 		);
 	}
-
-	footer p {
-		padding: 30px max(20%, 20px) 0 ;
-	}
-
 </style>

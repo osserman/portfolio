@@ -1,11 +1,12 @@
 <script>
 import { subscribe } from 'svelte/internal';
 
-	// import { page } from '$app/stores';
+	import { page } from '$app/stores';
 	import '../../app.css';
 	import {headerData, filterProjectsBy, activeTopic} from './headerData.js';
 
-	const accentColor=  '#802bb1';
+	const accentColor=  'rgb(255, 80, 39)';// '#802bb1';
+
 	function mkGradient(n){
 		let firstStopPct = Math.min(98, 100 - (n * 20));
 		let secondStopPct = Math.min(98, firstStopPct + 30);
@@ -17,12 +18,13 @@ import { subscribe } from 'svelte/internal';
 
 <header>
 	<div class="center">
-		<h1>Stephen Osserman</h1>
+		<h1><a href='/'>Stephen Osserman</a></h1>
 		<div class='btn-group'>
 			{#each ['analytics','infoViz','mapping'] as topic }
-			<button class:active= {$activeTopic == topic}
+			<a href='/' class:active= {$activeTopic == topic}
 				style="background-image: {mkGradient($headerData[topic])}"
-				on:click={() => {
+				on:click={(event) => {
+					if($page.url.pathname == '/'){console.log('preventing default'); event.preventDefault()}
 					if($activeTopic == topic){
 						activeTopic.set(null) ; 
 						filterProjectsBy.set('all');
@@ -30,7 +32,7 @@ import { subscribe } from 'svelte/internal';
 						activeTopic.set(topic); 
 						filterProjectsBy.set(topic);
 					}
-				}}>{topic[0].toUpperCase() + topic.slice(1)}</button>
+				}}>{topic[0].toUpperCase() + topic.slice(1)}</a>
 			{/each}
 		</div>
 	</div>
@@ -61,14 +63,23 @@ import { subscribe } from 'svelte/internal';
 		letter-spacing: 0.3rem;
 		margin: 0;
 	}
+	.center a { 		
+		color: var(--text-color);
+		transition: color 0.3s;
+	}
+	.center a:hover { 	
+		text-decoration: none;	
+		color: #d1d7e090;
+	}
 	.center .btn-group { 
 		display: flex;
 		align-items: center;
 		gap: 20px;
 		width: 100%;
 	}
-	.center .btn-group button { 
+	.center .btn-group a { 
 		flex: 1; 
+		text-align: center;
 		border: none;
 		font-weight: 200;
 		font-size: 1.6rem;
@@ -77,12 +88,13 @@ import { subscribe } from 'svelte/internal';
 		position: relative;
 		width: 100%;
 		background-color: transparent;
+		transition: color 0.3s;
 	}
 
-	.center .btn-group button:hover:not(.active){ 
-		color: gray;
+	.center .btn-group a:hover:not(.active){ 
+		color: #d1d7e090;
 	}
-	.center .btn-group button.active { 
+	.center .btn-group a.active { 
 		/*border-right: 1px solid #802bb1;
 		border-left: 1px solid #802bb1;
 		font-weight: 400;*/

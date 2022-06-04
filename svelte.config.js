@@ -12,7 +12,13 @@ const config = {
 		}),
         paths: {
             base: dev ? "": "/portfolio",
+        },
+        vite: { 
+            optimizeDeps: { 
+                include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'] 
+            } 
         }
+
         // hydrate the <div id="svelte"> element in src/app.html
         // target: "#svelte"
     }

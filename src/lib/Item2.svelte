@@ -1,85 +1,14 @@
 <script> 
 
 import {headerData, filterProjectsBy, activeTopic} from './header/headerData.js';
-import {fade , fly, slide, scale} from 'svelte/transition';
+import {fade } from 'svelte/transition';
 import { flip } from 'svelte/animate';
+import { createEventDispatcher } from 'svelte';
+import '../app.css'
+const dispatch = createEventDispatcher(); 
 
-   const projects = [
-    { 
-        imgUrl:  "ElectionUncertainty.png",
-        imgAlt:  "Preview of Election Uncertainty Map",
-        description:  "Election Uncertainty",
-        analytics: 1, 
-        infoViz: 3, 
-        mapping: 5
-    }
-    ,{   
-        imgUrl: "GenreKeys2.png",
-    	imgAlt: "Preview of Genre Keys Project",
-        description: "Spotify Genre Keys",
-        analytics: 2, 
-        infoViz: 4, 
-        mapping: 0
-    }
-    ,{ 
-		imgUrl:  "PeopleOfThePandemic.png",
-		imgAlt:  "Preview of People of the Pandemic Game",
-		description:  "People of the Pandemic",
-        analytics: 5, 
-        infoViz: 3, 
-        mapping: 0
-	}
-    ,{ 
-        imgUrl:  "WisconsinBridges.png",
-        imgAlt:  "Preview of Winsconsin Bridges",
-        description:  "Wisconsin Bridges",
-        analytics: 4, 
-        infoViz: 4, 
-        mapping: 5
-    }
-    ,
-    { 
-		imgUrl:  "CirclingMtHood.png",
-		imgAlt:  "Preview of Circling Mt Hood",
-		description:  "Circling Mt. Hood",
-        analytics: 3, 
-        infoViz: 3, 
-        mapping: 2
-	}
-    ,{ 
-        imgUrl:  "RacialWealthGapHousing.png",
-        imgAlt:  "Preview of Housing and the Racial Wealth Gap",
-        description:  "Unrealized Wealth",
-        analytics: 5, 
-        infoViz: 2, 
-        mapping: 3
-    },
-    { 
-		imgUrl: "ExploringWordle.png",
-		imgAlt:  "Preview of Exploring Wordle Project",
-		description:  "Exploring Wordle",
-        analytics: 4, 
-        infoViz: 4, 
-        mapping: 0
-    }
-    ,{ 
-        imgUrl:  "TheTaxDodge.png",
-        imgAlt:  "Preview of The Tax Dodge",
-        description:  "The Tax Dodge",
-        analytics: 0, 
-        infoViz: 4, 
-        mapping: 0
-    }
-    ,
-    { 
-        imgUrl:  "PianoFlashcards.png",
-        imgAlt:  "Preview of Circling Mt Hood",
-        description:  "Piano Flashcard Game",
-        analytics: 0, 
-        infoViz: 1, 
-        mapping: 0
-    }
-]
+import projects from '$lib/projects.json';
+
 $: filteredProjects = ($filterProjectsBy == 'all' ? 
     projects : 
     projects.filter(d=> d[$filterProjectsBy] > 1).sort((a,b)=> {return b[$filterProjectsBy]-a[$filterProjectsBy]}))
@@ -87,14 +16,15 @@ $: filteredProjects = ($filterProjectsBy == 'all' ?
 
 <div class='wrapper'>
     {#each filteredProjects as project (project)}
-    <div  transition:fade animate:flip="{{duration: 500}}" class='item-wrapper' 
-        on:mouseenter= {()=>headerData.change(project)}
-        on:mouseleave= {()=>headerData.reset()}>
+    <a href= {`/${project.slug}`} transition:fade={{duration:300}} animate:flip="{{duration: 500}}" class='item-wrapper' 
+            on:mouseenter= {()=>headerData.change(project)}
+            on:mouseleave= {()=>headerData.reset()}
+        >
         <p>{project.description}</p>
         <div class='img-background'>
             <img src= {project.imgUrl} alt={project.imgAlt}>
         </div>
-    </div>
+    </a>
     {/each}
     {#if $filterProjectsBy != 'all'}
     <div class='show-all'><button on:click={() =>{ activeTopic.set(null); filterProjectsBy.set('all')}}>Show All Projects</button></div>
@@ -104,26 +34,27 @@ $: filteredProjects = ($filterProjectsBy == 'all' ?
 
 <style>
     .wrapper {
+        --img-width: 300px;
         display: grid;
         margin-top: 10px;
-        grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+        grid-template-columns: repeat(auto-fit, minmax(var(--img-width), max-content));
         grid-gap: 40px;
         justify-content: center;
-        padding: 30px 0 30vh;
+        padding: 30px 0 0;
         height: 70vh;
         overflow: auto;
     }
     .item-wrapper {
         height: fit-content;
-        width: 250px;
+        width: var(--img-width);
     }
     .item-wrapper img {
         width: 100%;
         filter: grayscale(1);
-        opacity: 0.75;
+        opacity: .9;
         transition: filter 0.5s, opacity 0.5s;
     }
-    .item-wrapper:hover img {
+    .item-wrapper:hover img, .item-wrapper:focus img {
         filter: grayscale(0);
         opacity: 1;
     }
@@ -132,6 +63,7 @@ $: filteredProjects = ($filterProjectsBy == 'all' ?
         margin: 0;
         transition: color 0.5s;
         font-weight: bold;
+        font-size: 1.1rem;
     }
 
     .item-wrapper:hover p {
@@ -141,11 +73,11 @@ $: filteredProjects = ($filterProjectsBy == 'all' ?
     }
 
     div.img-background {
-        background-color: #564f6f;
+        background-color: var(--secondary-color);
     }
     div.img-background {
-        max-width: 250px;
-        max-height: 250px;
+        max-width: var(--img-width);
+        max-height: var(--img-width);
     }
     .show-all {
         display:flex;
