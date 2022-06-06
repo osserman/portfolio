@@ -15,7 +15,8 @@
 </svelte:head>
 
 <section>
-	<Item2 on:featureproject = {(event) => {console.log(event.Detail, ); showDetail = event.detail}}/>
+	<Item2 />
+ <!--	<Item2 on:featureproject = {(event) => {console.log(event.Detail, ); showDetail = event.detail}}/>-->
  <!--<Projects />-->
 </section>
 

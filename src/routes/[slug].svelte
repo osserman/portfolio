@@ -37,7 +37,7 @@
     <div>Project Not Found</div>
     <a id='close' href="./">Close</a>
 {:else}
-    <div in:fade="{{delay: 350, duration: 300}}">
+    <div in:fade="{{ duration: 300}}">
         <h2>{project.detail.title} <a id='close' href="./">Close</a></h2>
 
         <div class='wrapper'>

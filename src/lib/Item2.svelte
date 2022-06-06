@@ -16,7 +16,7 @@ $: filteredProjects = ($filterProjectsBy == 'all' ?
 
 <div class='wrapper'>
     {#each filteredProjects as project (project)}
-    <a href= {`/${project.slug}`} transition:fade={{duration:300}} animate:flip="{{duration: 500}}" class='item-wrapper' 
+    <a href= {`/${project.slug}`} in:fade={{duration:300}} animate:flip="{{duration: 500}}" class='item-wrapper' 
             on:mouseenter= {()=>headerData.change(project)}
             on:mouseleave= {()=>headerData.reset()}
         >

@@ -104,9 +104,10 @@
                 {"text": "Observable Notebook", "url": "https://observablehq.com/d/bafed49bab114640"}
             ],
             "carouselImgs": [
-                {"src": "CirclingMtHood.png", "alt": "first img"},
-                {"src": "CirclingMtHood.png", "alt": "second img"},
-                {"src": "CirclingMtHood.png", "alt": "third img"}
+                {"src": "CirclingMtHood1.png", "alt": "second img"},
+                {"src": "CirclingMtHood2.png", "alt": "third img"},
+                {"src": "CirclingMtHood.gif", "alt": "git showing animation of circling mt hood"}
+
             ]
         }
 	},
@@ -120,15 +121,16 @@
 		"mapping": 3,
         "detail": {
             "title": "Housing-Based Wealth Accumulation and the Wealth Gap in Portland, OR",
-            "body": "<p>In 2019 I was able to work as a Data Scientist on a Hack Oregon volunteer team looking at housing. I focused on connection points between historic discrimination in housing policy and the present-day racial wealth gap. I specifically looked at the huge gains in home values &mdash; gains unrealized by those historically locked out of home-ownership.</p><p>For this project I preprocessed messy data from decades of federal home loan data, county parcel-level property tax geodata, and census data; built a geospatial Kriging model of inflation-adjusted appreciation in home values; prototyped visualizations; and presented our work to a live audience who voted us top project at the end-of-season demo day.</p>",
-            "languages": "R, postgis, python, d3 (though my work was primarily in R and postgis)",
+            "body": "<p>In 2019 I was able to work as a Data Scientist on a Hack Oregon volunteer team looking at housing. I focused on connection points between historic discrimination in housing policy and the present-day racial wealth gap. I specifically looked at the huge gains in home values &mdash; gains unrealized by those historically locked out of home-ownership.</p><p>For this project I preprocessed decades of messy data (e.g. federal home loan data, county parcel-level property tax geodata, and census data); built a geospatial Kriging model of inflation-adjusted appreciation in home values; prototyped visualizations; and presented our work to a live audience who voted us top project at the end-of-season demo day.</p>",
+            "languages": "R, postgis, python, d3, mapbox (though my work was primarily in R and postgis)",
             "externalLinks": [
-                {"text": "Observable Notebook", "url": "https://observablehq.com/d/bafed49bab114640"}
+                {"text": "Portland's Racial Homeownership Gap => Wealth Gap", "url": "http://civicplatform.org/cards/home-appreciation"},
+                {"text": "Full Collection from 2019 Hack Oregon Housing Team", "url": "http://civicplatform.org/2019/housing"}
             ],
             "carouselImgs": [
-                {"src": "RacialWealthGapHousing.png", "alt": "map of Portland showing large areas where house values appreciated more than $200K since 1990"},
-                {"src": "RacialWealthGapHousing.png", "alt": "second img"},
-                {"src": "RacialWealthGapHousing.png", "alt": "third img"}
+                {"src": "RacialWealthGapHousing1.gif", "alt": "interactive chart showing displacement of Black population in historically Black neighborhoods"},
+                {"src": "RacialWealthGapHousing3.png", "alt": "chart showing historic gap in homeownership between Black and White families in 1990 Portladn"},
+                {"src": "RacialWealthGapHousing2.gif", "alt": "interactive map of Portland inflation-adjusted home appreciation (in hundreds of thousands per home) since 1990"}
             ]
         }
 	},
@@ -155,7 +157,7 @@
         }
 	},
 	{ 
-		"imgUrl":  "TheTaxDodge.png",
+		"imgUrl":  "TheTaxDodgeTeaser.png",
 		"imgAlt":  "Preview of The Tax Dodge",
 		"description":  "The Tax Dodge",
 		"slug": "the-tax-dodge",
@@ -167,12 +169,13 @@
             "body": "<p>As Director of a Data Storytelling pilot project at MoveOn, I worked with our campaigns team to come up with approaches to make the often-intimidating topic of tax fairness accessible and engaging.</p><p>In a compressed sprint I project managed; coordinated with designers and illustrators; consulted partner organizations, policy experts and campaigners; led user-testing and QA; and did the bulk of the front-end development.</p>",
             "languages": "d3, css, javascript, html",
             "externalLinks": [
-                {"text": "Website", "url": "https://data-stories.moveon.org/the-tax-dodge/"}
+                {"text": "The Tax Dodge", "url": "https://data-stories.moveon.org/the-tax-dodge/"}
             ],
             "carouselImgs": [
-                {"src": "TheTaxDodge.png", "alt": "first img"},
-                {"src": "TheTaxDodge.png", "alt": "second img"},
-                {"src": "TheTaxDodge.png", "alt": "third img"}
+                {"src": "TheTaxDodgeTeaser.png", "alt": "first img"},
+                {"src": "TheTaxDodgeOpeningChart.png", "alt": "third img"},
+                {"src": "TheTaxDodgePayTaxes.gif", "alt": "first img"},
+                {"src": "TheTaxDodgeOof.gif", "alt": "second img"}
             ]
         }
 	},
@@ -192,7 +195,8 @@
                 {"text": "Piano Flashcard Game", "url": "https://osserman.github.io/piano-flashcard/"}
             ],
             "carouselImgs": [
-                {"src": "PianoFlashcards.png", "alt": "first img"}
+                {"src": "PianoFlashcards.png", "alt": "note on staff with keyboard"},
+                {"src": "PianoFlashcards.gif", "alt": "gif of flashcard gameplay"}
             ]
         }
 
@@ -207,18 +211,14 @@
 		"mapping": 0,
         "detail": {
             "title": "Palette Extractor",
-            "body": "<p>A quick tool to manually build palettes from a photo. </p>",
+            "body": "<p>A simple tool to manually build palettes from an image.</p>",
             "languages": "d3, Observable",
             "externalLinks": [
                 {"text": "Palette Extractor", "url": "https://observablehq.com/d/d6512be81e170ece"}
             ],
             "carouselImgs": [
                 {"src": "PaletteExtractor.png", "alt": "first img"},
-                {"src": "Palette2.jpg", "alt": "build palette from photo nature photo color 1"},
-                {"src": "Palette3.jpg", "alt": "build palette from photo nature photo color 2"},
-                {"src": "Palette4.jpg", "alt": "build palette from photo nature photo color 3"},
-                {"src": "Palette5.jpg", "alt": "build palette from photo nature photo color 4"},
-                {"src": "Palette6.jpg", "alt": "build palette from photo nature photo color 5"}
+                {"src": "PaletteExtractor.gif", "alt": "build palette from photo nature photo"}
             ]
         }
 
