@@ -1,7 +1,6 @@
 import adapter from "@sveltejs/adapter-static"; 
 
-// the check for "production" === "development" isn't working. 
-const dev = 1; // "production" === "development";
+const dev = (process.env.NODE_ENV == 'development') 
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
