@@ -3,9 +3,6 @@
 </script>
 
 <script>
-	 //import Item from '$lib/Item.svelte';
-	 //import ItemDetail from '../lib/ItemDetail.svelte';
-	 //import Item2 from '$lib/Item2.svelte';
 	 import ProjectGrid from '$lib/ProjectGrid.svelte'
 </script>
 

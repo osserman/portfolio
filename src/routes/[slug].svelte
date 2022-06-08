@@ -15,9 +15,6 @@
     // Carousel import and prep
 
     import { onMount } from 'svelte';
-//import Arrow from 'svelte-carousel/src/components/Arrow/Arrow.svelte';
-//import Carousel from 'svelte-carousel/src/components/Carousel/Carousel.svelte';
-//import Dot from 'svelte-carousel/src/components/Dot/Dot.svelte';
 
     let Carousel; // for saving Carousel component class
     let carousel; // for calling methods of the carousel instance
@@ -26,11 +23,6 @@
     const module = await import('svelte-carousel');
         Carousel = module.default;
     });
-
-   /* const handleNextClick = () => {
-        carousel.goToNext()
-    }*/
-
 </script>
 
 <div>
@@ -65,11 +57,7 @@
                         &#10095;
                      </button>
                 </svelte:component>
-
-               <!-- <button on:click={handleNextClick}>Next</button>-->
-
             </div>
-            <!-- <img src = {project.imgUrl} alt= {project.imgAlt}/> -->
             <div>
                 <p>{@html project.detail.body}</p>
                 <p><strong>Languages and Tools: </strong>{project.detail.languages}</p>
@@ -144,11 +132,11 @@ li {
     line-height: 2;
 }
 li a{
-    text-decoration: underline ;/*var(--accent-color) solid 1px;*/
+    text-decoration: underline ;
     color:white;
 }
 p a{
-    text-decoration: underline ;/*var(--accent-color) solid 1px;*/
+    text-decoration: underline ;
     color:white;
 }
 li a:hover, p a:hover {

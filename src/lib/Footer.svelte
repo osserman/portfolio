@@ -23,7 +23,6 @@
     }
 
     button.close{
-        /*background-color: var(--secondary-color);*/
         font-size: 0.8rem;
         background: linear-gradient(
 			#00000000 0%,
@@ -38,7 +37,6 @@
 		position: fixed;
 		bottom: 0;
 		width: 100%;
-		/*min-height: 30%;*/
 		margin: 0;
 		display: flex; 
 		align-items: end;

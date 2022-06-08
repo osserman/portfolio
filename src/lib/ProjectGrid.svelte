@@ -5,7 +5,6 @@
     import { flip } from 'svelte/animate';
     import { createEventDispatcher } from 'svelte';
     import '../app.css'
-    const dispatch = createEventDispatcher(); 
     
     import projects from '$lib/projects.json';
     

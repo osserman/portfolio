@@ -36,20 +36,14 @@
 
 }
 
-.foo {
-	color: green;
-}
-
 body {
 	min-height: 100vh;
 	overflow: auto;
 	margin: 0;
 	background-color: var(--primary-color);
 	background: linear-gradient(
-		/*180deg,*/
 		var(--primary-color) 0%,
 		var(--primary-color) 10%,
-		/*var(--secondary-color) 10.45%,*/
 		var(--tertiary-color) 75%,
 		var(--tertiary-color) 100%
 	);
