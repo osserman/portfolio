@@ -18,7 +18,7 @@ const config = {
 		},
         paths: {
             // change below to your repo name
-            base: dev ? "" : "/sveltekit_test",
+            base: dev ? "" : "/portfolio",
 		},
 		// for svelte-carousel
 		vite: { optimizeDeps: { include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'] } } 
