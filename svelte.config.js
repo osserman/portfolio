@@ -9,6 +9,7 @@ const config = {
 			pages: "docs",
             assets: "docs"
 		}),
+        prerender : { default: true},
         paths: {
             base: dev ? "": "/portfolio",
         },

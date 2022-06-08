@@ -1,19 +1,15 @@
 <script>
-import { subscribe } from 'svelte/internal';
-
 	import { page } from '$app/stores';
 	import '../../app.css';
 	import {headerData, filterProjectsBy, activeTopic} from './headerData.js';
 
 	const accentColor=  'rgb(255, 80, 39)';// '#802bb1';
-
+	console.log('$page.url', $page.url)
 	function mkGradient(n){
 		let firstStopPct = Math.min(98, 100 - (n * 20));
 		let secondStopPct = Math.min(98, firstStopPct + 30);
 		return 'linear-gradient( rgba(0,0,0,0), rgba(0,0,0,0) ' + firstStopPct + '%, ' + accentColor + ' ' + secondStopPct + '%, ' + accentColor + ' 100%)';
 	} 
-	// import logo from './svelte-logo.svg';
-	//let activeTopic; 
 </script>
 
 <header>

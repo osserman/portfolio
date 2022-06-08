@@ -1,7 +1,7 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
-	import Footer from '../lib/Footer.svelte';
+	import Footer from '$lib/Footer.svelte';
 	let showFooter = false; 
 </script>
 <svelte:head>
