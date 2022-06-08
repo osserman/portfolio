@@ -1,7 +1,7 @@
 <script> 
-import {slide} from 'svelte/transition';
-import { createEventDispatcher } from 'svelte';
-const dispatch = createEventDispatcher(); 
+	import {slide} from 'svelte/transition';
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher(); 
 </script>
 
 <footer>

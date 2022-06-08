@@ -1,6 +1,7 @@
  
 <script>
     import {page} from '$app/stores';
+    import { base } from '$app/paths';
     import '../app.css';
     import {fade } from 'svelte/transition';
 
@@ -56,7 +57,7 @@
                     {#each images as img, imageIndex (img)}
                         <div class="img-container">
                         {#if loaded.includes(imageIndex)}
-                            <img {...img} />
+                            <img src = "{base}/imgs/{img.src}" alt={img.alt} />
                         {/if}
                         </div>
                      {/each}

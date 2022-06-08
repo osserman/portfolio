@@ -1,5 +1,5 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
+	import Header from '$lib/Header.svelte';
 	import '../app.css';
 	import Footer from '$lib/Footer.svelte';
 	let showFooter = false; 
@@ -8,8 +8,12 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100..700&display=swap" rel="stylesheet">
+	<title>Stephen's Portfolio</title>
+	<meta name="description" content="Stephen Osserman Portfolio" />
 </svelte:head>
- <Header />
+{#if true}
+<Header />
+{/if}
 
 <main>
 	<slot />

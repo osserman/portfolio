@@ -1,23 +1,25 @@
 <script>
-	import { page } from '$app/stores';
-	import '../../app.css';
-	import {headerData, filterProjectsBy, activeTopic} from './headerData.js';
+    import { page } from '$app/stores';
+    import { base } from '$app/paths';
+	import '../app.css';
+    import {headerData, filterProjectsBy, activeTopic} from './store.js';
 
 	const accentColor=  'rgb(255, 80, 39)';// '#802bb1';
-	console.log('$page.url', $page.url)
+
 	function mkGradient(n){
 		let firstStopPct = Math.min(98, 100 - (n * 20));
 		let secondStopPct = Math.min(98, firstStopPct + 30);
 		return 'linear-gradient( rgba(0,0,0,0), rgba(0,0,0,0) ' + firstStopPct + '%, ' + accentColor + ' ' + secondStopPct + '%, ' + accentColor + ' 100%)';
 	} 
-</script>
+
+</script> 
 
 <header>
 	<div class="center">
-		<h1><a href='/'>Stephen Osserman</a></h1>
+        <h1><a href="{base}/">Stephen Osserman</a></h1>
 		<div class='btn-group'>
 			{#each ['analytics','infoViz','mapping'] as topic }
-			<a href='/' class:active= {$activeTopic == topic}
+			<a href='{base}/' class:active= {$activeTopic == topic}
 				style="background-image: {mkGradient($headerData[topic])}"
 				on:click={(event) => {
 					if($page.url.pathname == '/'){console.log('preventing default'); event.preventDefault()}
@@ -48,14 +50,14 @@
 		margin: 0 auto;
 		flex-direction: column;
 		align-items:center;
-		padding-top: 20px;
+		padding-top: 40px;
 		font-family: 'Roboto Flex', sans-serif;
 
 	}
 	.center h1 { 		
 		font-weight: 100;
 		text-transform: uppercase;
-		font-size: 2.5rem;
+		font-size: 2.8rem;
 		letter-spacing: 0.3rem;
 		margin: 0;
 	}
@@ -91,11 +93,7 @@
 		color: #d1d7e090;
 	}
 	.center .btn-group a.active { 
-		/*border-right: 1px solid #802bb1;
-		border-left: 1px solid #802bb1;
-		font-weight: 400;*/
 		box-shadow: 4px 7px 10px #050505;
-		
 	}
 
 </style>

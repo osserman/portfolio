@@ -5,19 +5,13 @@
 <script>
 	 //import Item from '$lib/Item.svelte';
 	 //import ItemDetail from '../lib/ItemDetail.svelte';
-	 import Item2 from '$lib/Item2.svelte';
-	
+	 //import Item2 from '$lib/Item2.svelte';
+	 import ProjectGrid from '$lib/ProjectGrid.svelte'
 </script>
 
-<svelte:head>
-	<title>Stephen's Portfolio</title>
-	<meta name="description" content="Stephen Osserman Portfolio" />
-</svelte:head>
 
 <section>
-	<Item2 />
- <!--	<Item2 on:featureproject = {(event) => {console.log(event.Detail, ); showDetail = event.detail}}/>-->
- <!--<Projects />-->
+    <ProjectGrid />
 </section>
 
 <style>
