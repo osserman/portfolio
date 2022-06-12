@@ -14,6 +14,7 @@
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+	--img-opacity: 0.9;
 
 	--primary-color: rgb(86, 29, 33);
 	--secondary-color: rgb(143, 51, 54);
@@ -34,6 +35,38 @@
 	--tertiary-color: #4c495d;
 	--bg-blend-transparent: #44415500;
 
+
+	--primary-color: rgb(6, 32, 32);
+	--secondary-color: #564f6f;
+	--tertiary-color: rgb(8, 51, 52);
+	--bg-blend-transparent: #44415500;
+	--accent-color: rgb(12, 221, 177);
+	--text-color: rgb(216, 177, 139);/*rgb(253, 205, 153);*/
+	--heading-color: rgb(216, 177, 139);/*rgb(225, 255, 255);*/ 
+
+	/*, , , , rgb(244, 254, 255), */
+	--primary-color: rgb(233, 232, 220);
+	--secondary-color: rgb(233, 232, 220);
+	--tertiary-color:rgb(233, 232, 220);
+	--bg-blend-transparent: rgb(233, 232, 220);
+	--accent-color: rgb(238, 93, 81);
+	--text-color: rgb(122, 122, 119);
+	--heading-color: rgb(122, 122, 119);
+	--img-opacity: 0.7;
+
+	/* rgb(233, 232, 220), rgb(216, 196, 164), rgb(245, 245, 246), rgb(231, 129, 116), rgb(238, 93, 81), rgb(142, 141, 138), rgb(122, 122, 119)*/ 
+
+
+	--primary-color: rgb(20, 13, 29);
+	--secondary-color: rgb(38, 27, 59);
+	--tertiary-color:rgb(45, 32, 79);/*rgb(49, 33, 86);*/
+	--bg-blend-transparent: rgba(20, 13, 29, 0);
+	--accent-color: rgb(216, 63, 135);
+	--text-color: rgb(255, 255, 255);
+	--heading-color: rgb(255, 255, 255);
+	--img-opacity: 0.9;
+	/*, , , , , rgb(77, 57, 169)*/
+
 }
 
 body {
@@ -43,8 +76,8 @@ body {
 	background-color: var(--primary-color);
 	background: linear-gradient(
 		var(--primary-color) 0%,
-		var(--primary-color) 10%,
-		var(--tertiary-color) 75%,
+		var(--primary-color) 3%,
+		var(--tertiary-color) 95%,
 		var(--tertiary-color) 100%
 	);
 }
@@ -64,6 +97,7 @@ p {
 
 p {
 	line-height: 1.6;
+	margin-top: 0px;
 }
 
 a {

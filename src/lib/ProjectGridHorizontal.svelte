@@ -5,24 +5,23 @@
     import { flip } from 'svelte/animate';
     import { createEventDispatcher } from 'svelte';
     import '../app.css'
-    import viewport from '$lib/useViewportAction';
-
+    
     import projects from '$lib/projects.json';
-import { select_multiple_value } from 'svelte/internal';
     
     $: filteredProjects = ($filterProjectsBy == 'all' ? 
         projects : 
         projects.filter(d=> d[$filterProjectsBy] > 1).sort((a,b)=> {return b[$filterProjectsBy]-a[$filterProjectsBy]}))
     </script>
+    <div class='wrapper-outer'>
+    <button on:click={() => {document.getElementById('wrapper').scrollLeft -= 390 * Math.floor(document.getElementById('wrapper').offsetWidth/390)}} class="custom-arrow custom-arrow-prev">
+        &#10094;
+    </button>
     
-    <div class='wrapper'>
-        {#each filteredProjects as project (project.slug)}
+    <div class='wrapper' id='wrapper'>
+        {#each filteredProjects as project (project)}
         <a href= {`${base}/${project.slug}`} in:fade={{duration:300}} animate:flip="{{duration: 500}}" class='item-wrapper' 
                 on:mouseenter= {()=>headerData.change(project)}
                 on:mouseleave= {()=>headerData.reset()}
-                use:viewport
-                on:enterViewport= {(e)=>{/*headerData.change(project);*/ e.target.classList.add('in-view')}}
-                on:exitViewport= {(e)=>e.target.classList.remove('in-view')}
             >
             <p>{project.description}</p>
             <div class='img-background'>
@@ -34,47 +33,59 @@ import { select_multiple_value } from 'svelte/internal';
         <div class='show-all'><button on:click={() =>{ activeTopic.set(null); filterProjectsBy.set('all')}}>Show All Projects</button></div>
         {/if}
     </div>
-    
-    
+
+    <button on:click={()=>{
+        document.getElementById('wrapper').scrollLeft += document.getElementById('wrapper').scrollLeft += 390 * Math.floor(document.getElementById('wrapper').offsetWidth/390)}} class="custom-arrow custom-arrow-next">
+        &#10095;
+     </button>
+    </div>
     <style>
+        .wrapper-outer {
+            display: flex;
+            gap: 20px;
+            align-items: end;
+        }
         .wrapper {
-            --img-width: min(350px, 100%);
-            max-width: 1258px;
-            display: grid;
-            margin: 10px auto 0;
-            grid-template-columns: repeat(auto-fit, minmax(var(--img-width), max-content));
+            --img-width: 350px;
+            display: flex;
+            margin-top: 100px;
+            padding-bottom: 30px;
+            flex-wrap: nowrap;
+            gap: 40px;
+           /* grid-template-columns: repeat(auto-fit, minmax(var(--img-width), max-content));
             grid-gap: 40px;
-            justify-items: center;
+            justify-content: center;
             padding: 30px 0 0;
-            height: 70vh;
-            overflow: auto;
+            height: 70vh;*/
+            overflow-x: auto;
+            scroll-behavior: smooth;
         }
         .item-wrapper {
             height: fit-content;
-            width: var(--img-width);
+            min-width: var(--img-width);
         }
-        :global(.item-wrapper img) {
+        .item-wrapper img {
             width: 100%;
             filter: grayscale(1);
-            opacity: var(--img-opacity);
+            opacity: .9;
             transition: filter 0.5s, opacity 0.5s;
         }
-        :global(a.item-wrapper:hover img, a.item-wrapper:focus img) {
+        .item-wrapper:hover img, .item-wrapper:focus img {
             filter: grayscale(0);
             opacity: 1;
         }
         p {
             text-align: center;
-            margin: 0;
+            margin: 0 0 6px;
             transition: color 0.5s;
-            font-weight: bold;
-            font-size: 1.1rem;
+            /*font-weight: bold;*/
+            font-size: 1.2rem;
+            text-transform: uppercase;
         }
     
-        a.item-wrapper:hover p {
+        .item-wrapper:hover p {
             filter: grayscale(0);
             opacity: 1;
-            color: white;
         }
     
         div.img-background {
@@ -94,31 +105,13 @@ import { select_multiple_value } from 'svelte/internal';
             background-color: transparent;
         }
 
-        @media (max-width: 575px) {
-
-            :global(.item-wrapper img) {
-                width: 100%;
-                filter: grayscale(1);
-                opacity: .5;
-                transition: filter 0.2s, opacity 0.2s;
-            }
-
-            :global(.item-wrapper:last-of-type) {
-                padding-bottom: calc(0.8* var(--img-width));
-            }
-            :global(.show-all) {
-                margin-top: calc(-0.8* var(--img-width));
-            }
-
-
-            :global(a.item-wrapper.in-view img) {
-                filter: grayscale(0);
-                opacity: 1;
-            }
-            :global(a.item-wrapper.in-view ~ a.item-wrapper.in-view img) {
-                filter: grayscale(1);
-                opacity: 0.5;
-            }
-
+        .custom-arrow {
+            border: none;
+            background-color: transparent;
+            color: #FFFFFF55;
+            font-size: 3rem;
+            padding-bottom: calc(350px/2);
         }
+       
+
     </style>

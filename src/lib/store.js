@@ -27,3 +27,5 @@ export const headerData = manageHeaderData();
 export const filterProjectsBy = writable('all'); 
 
 export const activeTopic = writable(null); 
+
+export const horizontalLayout = writable(true); 

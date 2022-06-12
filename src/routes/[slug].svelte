@@ -4,6 +4,7 @@
     import { base } from '$app/paths';
     import '../app.css';
     import {fade } from 'svelte/transition';
+    import ImgCarousel from "$lib/ImgCarousel.svelte";
 
 
     import projects from '$lib/projects.json';
@@ -11,7 +12,6 @@
     const project= projects.filter(d=> d.slug == $page.params.slug)[0];
 
     const images = project.detail.carouselImgs
-    console.log(images)
     // Carousel import and prep
 
     import { onMount } from 'svelte';
@@ -25,41 +25,17 @@
     });
 </script>
 
-<div>
+<div class='outer-wrapper'>
 {#if !project}
     <div>Project Not Found</div>
     <a id='close' href="./">Close</a>
 {:else}
     <div in:fade="{{ duration: 300}}">
         <h2>{project.detail.title} <a id='close' href="./">Close</a></h2>
-
         <div class='wrapper'>
-            <div id='img-carousel'>
-                <svelte:component
-                    this={Carousel}
-                    bind:this={carousel}
-                    let:loaded
-                    let:showPrevPage
-                    let:showNextPage
-                >
-                    
-                    <button slot="prev" on:click={showPrevPage} class="custom-arrow custom-arrow-prev">
-                        &#10094;
-                    </button>
-                    {#each images as img, imageIndex (img)}
-                        <div class="img-container">
-                        {#if loaded.includes(imageIndex)}
-                            <img src = "{base}/imgs/{img.src}" alt={img.alt} />
-                        {/if}
-                        </div>
-                     {/each}
-                     <button slot="next" on:click={showNextPage} class="custom-arrow custom-arrow-next">
-                        &#10095;
-                     </button>
-                </svelte:component>
-            </div>
+            <div id='img-carousel'><ImgCarousel {project} /></div>
             <div>
-                <p>{@html project.detail.body}</p>
+                {@html project.detail.body}
                 <p><strong>Languages and Tools: </strong>{project.detail.languages}</p>
                 {#if project.detail.externalLinks}
                     {#if project.detail.externalLinks.length > 1}
@@ -87,19 +63,17 @@
 a, h2, h3 { 
     color: var(--text-color);
 }
+.outer-wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+}
 
 .wrapper {
     display: flex;
     gap: 30px;
 }
 #img-carousel {
-    width: 50%;
-}
-.custom-arrow {
-    border: none;
-    background-color: transparent;
-    color: #FFFFFF55;
-    font-size: 3rem;
+    width: min(50%, 500px);
 }
 
 a#close,a#return {
@@ -110,15 +84,10 @@ a#close,a#return {
     text-transform: uppercase;
 }
 a#return { 
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
 }
 h2{
     font-size: 1.5rem;
-}
-img {
-    width: 100% 
-    /* min(50%, 500px);
-    margin-right: 16px;*/
 }
 
 ul {

@@ -48,7 +48,12 @@
 	}
 
 	footer p {
-		padding: 10px max(20%, 20px) 0 ;
+		padding: 40px 20% 0 ;
         font-size: 1.1rem;
+	}
+	@media (max-width: 575px) {
+		footer p {
+			padding: 40px 20px 0 ;
+		}
 	}
 </style>

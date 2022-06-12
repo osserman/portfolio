@@ -3,8 +3,14 @@
     import { base } from '$app/paths';
 	import '../app.css';
     import {headerData, filterProjectsBy, activeTopic} from './store.js';
-
-	const accentColor=  'rgb(255, 80, 39)';// '#802bb1';
+	export let spacingTop = '10px';
+	const accentColor=  ({
+		'initial': '#802bb1',
+		'orange': 'rgb(255, 80, 39)',
+		'teal': 'rgb(12, 221, 177)',
+		'orange2': 'rgb(238, 93, 81)',
+		'pink':'rgb(216, 63, 135)'
+	})['pink']
 
 	function mkGradient(n){
 		let firstStopPct = Math.min(98, 100 - (n * 20));
@@ -16,6 +22,7 @@
 
 <header>
 	<div class="center">
+		<div style='height: {spacingTop};'></div>
         <h1><a href="{base}/">Stephen Osserman</a></h1>
 		<div class='btn-group'>
 			{#each ['analytics','infoViz','mapping'] as topic }
@@ -93,7 +100,7 @@
 		color: #d1d7e090;
 	}
 	.center .btn-group a.active { 
-		box-shadow: 4px 7px 10px #050505;
+		box-shadow: 4px 7px 10px #000;
 	}
 
 </style>

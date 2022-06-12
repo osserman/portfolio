@@ -3,6 +3,10 @@
 	import '../app.css';
 	import Footer from '$lib/Footer.svelte';
 	let showFooter = false; 
+	import {horizontalLayout} from '$lib/store.js';
+	import { page } from '$app/stores';
+	let width;
+
 </script>
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +16,17 @@
 	<meta name="description" content="Stephen Osserman Portfolio" />
 </svelte:head>
 
-<Header />
+<svelte:window bind:outerWidth={width}/>
+
+<Header spacingTop={$horizontalLayout & $page.url.pathname == '/'  ? '40px' : '0px'} />
 
 <main>
 	<slot />
 </main>
 <div class='footer-toggle'><button on:click={() => {showFooter = !showFooter}}>About Stephen</button> </div>
+{#if width > 575}
+<div class='layout-toggle'><button on:click={() => {horizontalLayout.set(!$horizontalLayout)}}>Toggle Layout</button> </div>
+{/if}
 {#if showFooter}
 <Footer on:togglefooter={() => {showFooter=!showFooter}}/>
 {/if}
@@ -30,7 +39,6 @@
 		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
-		max-width: 1258px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
@@ -59,5 +67,14 @@
 			var(--accent-color) 50%,
 			var(--accent-color) 100%
 		);
+	}
+
+	.layout-toggle {
+		position: absolute;
+		left: 20px;
+		bottom: 16px;
+	}
+	.layout-toggle button{
+		color: black;
 	}
 </style>

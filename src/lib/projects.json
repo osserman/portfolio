@@ -9,7 +9,7 @@
 		"mapping": 5,
         "detail": {
             "title": "Visualizing Uncertainty of Partial U.S. Election Returns",
-            "body": "<p>In the summer of 2020 it became clear that early U.S. election returns &mdash; vote tallies in the first few hours after polls closed &mdash; would likely differ substantially from final vote count. Most news organizations adjusted some election reporting to account for this uncertainty. But most of their accompanying visualizations hardly changed.</p><p>Shortly after the election I pulled election return data and made a number of visualizations to illustrate the challenge and explore potential aproaches. This work led to a collaboration with political scientist <a href='https://alexandercoppock.com/' target='_blank'>Alexander Coppock</a> on a project to test the impact of different map-based election results visualizations.</p><p>While the research is ongoing, we have completed most of the maps for our study.</p>",
+            "body": "<p>In the summer of 2020 it became clear that early U.S. election returns &mdash; vote tallies in the first few hours after polls closed &mdash; would likely differ substantially from final vote count. Most news organizations adjusted some election reporting to account for this uncertainty. But most of their accompanying visualizations hardly changed from previous years.</p><p>Shortly after the election I pulled election return data and made a number of visualizations to illustrate the challenge and explore potential approaches. This work led to a collaboration with political scientist <a href='https://alexandercoppock.com/' target='_blank'>Alexander Coppock</a> on a project to test the impact of different map-based election results visualizations.</p><p>While the research is ongoing, we have completed most of the maps for our study.</p>",
             "languages": "Observable, d3, topojson",
             "externalLinks": [
                 {"text": "Charts and commentary with actual election return data", "url": "https://observablehq.com/d/23f111373d18f914"},
@@ -78,7 +78,7 @@
 		"mapping": 5,
         "detail": {
             "title": "Structurally Deficient Bridges in Wisconsin",
-            "body": "<p>There is often a disconnect between the federal government and work people see locally as a result of government actions.</p><p>The 2021 infrastructure bill provides funding to address many long-standing infrastructure needs, including the tens of thousands of structurally deficient bridges and overpasses across the country. Many of these bridges are still safe for now, but need attention.</p><p>Our Data Storytelling pilot project at MoveOn has been exploring ways to make this data accessible and engaging. While we have not yet published a final version, we have prototyped an interactive digital experience for Wisconsinites to learn about the bridges that need attention near them. Hopefully we will update and release a final version soon.</p>",
+            "body": "<p>There is often a disconnect between federal policy and local outcomes that result from those policies.</p><p>The 2021 infrastructure bill provides funding to address many long-standing infrastructure needs, including the tens of thousands of structurally deficient bridges and overpasses across the country. Many of these bridges are still safe for now, but need attention.</p><p>Our Data Storytelling pilot project at MoveOn has been exploring ways to make this data accessible and engaging. While we have not yet published a final version, we have prototyped an interactive digital experience for Wisconsinites to learn about the bridges that need attention near them. Hopefully we will update and release a final version soon.</p>",
             "languages": "Observable, d3, turf.js, Mapbox",
             "carouselImgs": [
                 {"src": "WisconsinBridges.png", "alt": "Car icon on map of WI"},
@@ -98,7 +98,7 @@
 		"mapping": 2,
         "detail": {
             "title": "Circling Mount Hood",
-            "body": "<p>A decade ago, on a drive from Portland to Idaho, while watching Mt Hood outside our car window, I had the thought that it would be interesting to plot the changes in perspective on a single mountain as you circumnavigate it.</p><p>I didn't think about the topic much more until seeing a #30mapchallenge topic on elevation. I decided to dive in. Though I have wanted to revisit to make some improvements, I leave it where visualizations should be left &mdash; imperfect, but \"done.\"",
+            "body": "<p>A decade ago, on a drive from Portland to Idaho, while watching Mt Hood outside our car window, I had the thought that it would be interesting to plot the changes in perspective on a single mountain as you circumnavigate it.</p><p>I didn't think about the topic much more until seeing a #30mapchallenge topic on elevation. I decided to dive in. Though I have wanted to revisit to make some improvements, I leave it where side projects should be left &mdash; imperfect, but \"done.\"",
             "languages": "R, Observable, d3",
             "externalLinks": [
                 {"text": "Observable Notebook", "url": "https://observablehq.com/d/bafed49bab114640"}
@@ -122,7 +122,7 @@
         "detail": {
             "title": "Housing-Based Wealth Accumulation and the Wealth Gap in Portland, OR",
             "body": "<p>In 2019 I was able to work as a Data Scientist on a Hack Oregon volunteer team looking at housing. I focused on connection points between historic discrimination in housing policy and the present-day racial wealth gap. I specifically looked at the huge gains in home values &mdash; gains unrealized by those historically locked out of home-ownership.</p><p>For this project I preprocessed decades of messy data (e.g. federal home loan data, county parcel-level property tax geodata, and census data); built a geospatial Kriging model of inflation-adjusted appreciation in home values; prototyped visualizations; and presented our work to a live audience who voted us top project at the end-of-season demo day.</p>",
-            "languages": "R, postgis, python, d3, mapbox (though my work was primarily in R and postgis)",
+            "languages": "R, postgis, python, d3, Mapbox (though my work was primarily in R and postgis)",
             "externalLinks": [
                 {"text": "Portland's Racial Homeownership Gap => Wealth Gap", "url": "http://civicplatform.org/cards/home-appreciation"},
                 {"text": "Full Collection from 2019 Hack Oregon Housing Team", "url": "http://civicplatform.org/2019/housing"}
