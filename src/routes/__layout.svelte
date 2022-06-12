@@ -77,4 +77,5 @@
 	.layout-toggle button{
 		color: black;
 	}
+
 </style>

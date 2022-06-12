@@ -23,8 +23,10 @@
     const module = await import('svelte-carousel');
         Carousel = module.default;
     });
-</script>
 
+    let width;
+</script>
+<svelte:window bind:outerWidth={width} />
 <div class='outer-wrapper'>
 {#if !project}
     <div>Project Not Found</div>
@@ -33,9 +35,14 @@
     <div in:fade="{{ duration: 300}}">
         <h2>{project.detail.title} <a id='close' href="./">Close</a></h2>
         <div class='wrapper'>
+            {#if width > 575}
             <div id='img-carousel'><ImgCarousel {project} /></div>
+            {/if}
             <div>
                 {@html project.detail.body}
+                {#if width <= 575}
+                    <div id='img-carousel-mobile'><ImgCarousel {project} /></div>
+                {/if}
                 <p><strong>Languages and Tools: </strong>{project.detail.languages}</p>
                 {#if project.detail.externalLinks}
                     {#if project.detail.externalLinks.length > 1}
@@ -64,7 +71,8 @@ a, h2, h3 {
     color: var(--text-color);
 }
 .outer-wrapper {
-    max-width: 1150px;
+    width: clamp(350px, 80%, 1150px);
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -112,4 +120,9 @@ li a:hover, p a:hover {
     text-decoration: none ;
 }
 
+@media (max-width: 575px) {
+    .wrapper {
+        flex-direction: column;
+    }
+}
 </style>
