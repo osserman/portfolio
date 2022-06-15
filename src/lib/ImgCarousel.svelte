@@ -48,6 +48,7 @@ let:showNextPage
     background-color: transparent;
     color: #FFFFFF55;
     font-size: 3rem;
+    padding: 8px;
 }
 
 img {

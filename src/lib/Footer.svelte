@@ -42,8 +42,8 @@
 		align-items: end;
 		background: linear-gradient(
 			var(--bg-blend-transparent) 0%,
-			var(--primary-color) 8%,
-			var(--primary-color) 100%
+			var(--secondary-color) 8%,
+			var(--secondary-color) 100%
 		);
 	}
 
